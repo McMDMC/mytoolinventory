@@ -1,0 +1,23 @@
+[
+  {
+    "id": "2",
+    "name": "Stanley Hammer",
+    "serialNumber": "ST-HAM-001",
+    "category": "Hand Tools",
+    "condition": "New"
+  },
+  {
+    "name": "Test Saw",
+    "serialNumber": "SAW-999",
+    "category": "Cutting",
+    "condition": "New",
+    "id": "1763978223285"
+  },
+  {
+    "name": "Playwright Saw",
+    "serialNumber": "PW-SAW-001",
+    "category": "Test Tools",
+    "condition": "New",
+    "id": "1763978478315"
+  }
+]
