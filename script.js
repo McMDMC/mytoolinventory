@@ -37,23 +37,41 @@ document.addEventListener('DOMContentLoaded', () => {
         tableBody.innerHTML = '';
 
         if (tools.length === 0) {
-            tableBody.innerHTML = '<tr><td colspan="5" style="text-align:center;">No tools found.</td></tr>';
+            tableBody.innerHTML = '<tr><td colspan="6" style="text-align:center;">No tools found.</td></tr>';
             return;
         }
 
         tools.forEach(tool => {
             const row = document.createElement('tr');
 
+            // Create a unique ID for the QR container
+            const qrId = `qrcode-${tool.id}`;
+
             row.innerHTML = `
                 <td>${escapeHtml(tool.name)}</td>
                 <td>${escapeHtml(tool.serialNumber)}</td>
                 <td>${escapeHtml(tool.category || '-')}</td>
                 <td>${escapeHtml(tool.condition || '-')}</td>
+                <td><div id="${qrId}" class="qr-code"></div></td>
                 <td>
                     <button class="btn-delete" data-id="${tool.id}">Delete</button>
                 </td>
             `;
             tableBody.appendChild(row);
+
+            // Generate QR Code
+            try {
+                new QRCode(document.getElementById(qrId), {
+                    text: tool.serialNumber,
+                    width: 64,
+                    height: 64,
+                    colorDark : "#000000",
+                    colorLight : "#ffffff",
+                    correctLevel : QRCode.CorrectLevel.H
+                });
+            } catch (e) {
+                console.error("QR Code generation failed", e);
+            }
         });
     }
 
