@@ -150,6 +150,18 @@ tr:hover {
 td {
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.95rem;
+    vertical-align: middle;
+}
+
+.qr-code {
+    background-color: white;
+    padding: 5px;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+.qr-code img {
+    display: block;
 }
 
 /* Action Buttons */
